@@ -1,0 +1,211 @@
+/* ==========================================================================
+   Vida Plena en Jesús — componentes de página
+   Clases usadas por las páginas que no viven en global.css.
+   Solo tokens --vpj-*; sin tocar global.css ni los scoped de cada componente.
+   ========================================================================== */
+
+/* --- Hero / portada ------------------------------------------------------- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  align-content: center;
+  min-height: clamp(320px, 45vw, 560px);
+  background-color: var(--vpj-primary-dark);
+}
+
+.hero__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+.hero__velo {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(35, 38, 46, 0.35) 0%,
+    var(--vpj-overlay) 100%
+  );
+  background-color: var(--vpj-overlay);
+}
+
+.hero__contenido {
+  position: relative;
+  z-index: 1;
+  align-self: center;
+  color: var(--vpj-text-on-dark);
+  padding-block: var(--vpj-space-7);
+}
+
+.hero__contenido h1,
+.hero__contenido h2 {
+  color: inherit;
+  max-width: 22ch;
+}
+
+.hero__sub {
+  margin-top: var(--vpj-space-3);
+  font-family: var(--vpj-font-display);
+  font-size: var(--vpj-text-sm);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: var(--vpj-tracking-label);
+  text-transform: uppercase;
+  color: var(--vpj-primary-100);
+}
+
+.hero__botones {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--vpj-space-3);
+  margin-top: var(--vpj-space-5);
+}
+
+/* --- Versículo ------------------------------------------------------------ */
+.versiculo {
+  background-color: var(--vpj-primary-dark);
+  color: var(--vpj-text-on-dark);
+  padding-block: var(--vpj-space-7);
+  text-align: center;
+}
+
+.versiculo p {
+  margin-inline: auto;
+  font-family: var(--vpj-font-display);
+  font-size: var(--vpj-text-xl);
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--vpj-text-on-dark);
+}
+
+.versiculo cite {
+  display: block;
+  margin-top: var(--vpj-space-3);
+  font-size: var(--vpj-text-xs);
+  font-style: normal;
+  letter-spacing: var(--vpj-tracking-label);
+  text-transform: uppercase;
+  color: var(--vpj-primary-100);
+}
+
+/* --- Sección alternativa -------------------------------------------------- */
+.seccion--alt {
+  background-color: var(--vpj-bg-alt);
+}
+
+/* --- Grid de 4 columnas (a partir de escritorio) ------------------------- */
+@media (min-width: 1024px) {
+  .grid--4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* --- Tarjetas ------------------------------------------------------------- */
+.tarjeta img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: var(--vpj-radius-md);
+}
+
+.tarjeta__cuerpo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vpj-space-2);
+}
+
+.tarjeta__programa {
+  display: block;
+  margin-top: var(--vpj-space-2);
+  font-family: var(--vpj-font-display);
+  font-size: var(--vpj-text-xs);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: var(--vpj-tracking-label);
+  text-transform: uppercase;
+  color: var(--vpj-primary);
+}
+
+.tarjeta__meta {
+  font-size: var(--vpj-text-sm);
+  line-height: 1.45;
+  color: var(--vpj-text-muted);
+}
+
+/* --- Botón terciario (texto) ---------------------------------------------- */
+.boton--texto {
+  min-height: 0;
+  padding: var(--vpj-space-2) 0 0;
+  background-color: transparent;
+  border-color: transparent;
+  color: var(--vpj-primary);
+  justify-content: flex-start;
+  text-decoration: none;
+}
+
+.boton--texto:hover {
+  background-color: transparent;
+  color: var(--vpj-primary-dark);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+/* --- Contacto ------------------------------------------------------------- */
+.contacto__lista {
+  margin: 0;
+  margin-top: var(--vpj-space-4);
+  padding: 0;
+  list-style: none;
+}
+
+.contacto__lista li + li {
+  margin-top: var(--vpj-space-2);
+}
+
+.contacto__lista a {
+  color: var(--vpj-primary-dark);
+  text-decoration: none;
+}
+
+.contacto__lista a:hover {
+  color: var(--vpj-accent);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.contacto .boton {
+  margin-top: var(--vpj-space-5);
+}
+
+/* --- Mar Adentro ---------------------------------------------------------- */
+.mar-adentro {
+  position: relative;
+}
+
+.mar-adentro__texto {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vpj-space-3);
+}
+
+.mar-adentro__texto p {
+  max-width: 55ch;
+  color: var(--vpj-text-muted);
+}
+
+/* --- Pie: columna --------------------------------------------------------- */
+.pie__col {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+/* --- Imágenes dentro de tarjeta en grid de cursos ------------------------ */
+/* La página youth-project.astro afina su propio grid con estilos scoped. */

@@ -1,0 +1,318 @@
+/* ==========================================================================
+   Vida Plena en Jesús — estilos globales
+   Orden: fuentes → tokens → reset → base → tipografía → componentes → media.
+   CSS puro, sin frameworks. Mobile-first (base = 360 px).
+   ========================================================================== */
+
+/* --- 1. Fuentes (self-hosted vía @fontsource-variable; Vite/Astro resuelven) --- */
+@import "@fontsource-variable/plus-jakarta-sans";
+@import "@fontsource-variable/inter";
+
+/* --- 2. Tokens de diseño (copia de docs/diseno-tokens.css) --- */
+:root {
+  /* Paleta: marca */
+  --vpj-primary: #616b87;
+  --vpj-primary-dark: #34476a;
+  --vpj-primary-700: #4e5872;
+  --vpj-primary-100: #e8ecf2;
+  --vpj-accent: #9a1b26;
+  --vpj-accent-dark: #7d141d;
+  /* Paleta: fondos y superficies */
+  --vpj-bg: #ffffff;
+  --vpj-bg-alt: #f4f6f9;
+  --vpj-bg-slate: #d8dce2;
+  --vpj-surface: #ffffff;
+  --vpj-border: #d6dbe4;
+  --vpj-border-strong: #bfc7d4;
+  /* Paleta: texto */
+  --vpj-text: #23262e;
+  --vpj-text-muted: #5c6370;
+  --vpj-text-on-dark: #ffffff;
+  --vpj-white-72: rgba(255, 255, 255, 0.72);
+  --vpj-overlay: rgba(35, 38, 46, 0.6);
+  /* Paleta: WhatsApp y acentos de programa */
+  --vpj-whatsapp: #25d366;
+  --vpj-whatsapp-dark: #0b6e5f;
+  --vpj-whatsapp-text: #0b3d2e;
+  --vpj-prog-kerygma: #5b9fd0;
+  --vpj-prog-familia: #e04020;
+  --vpj-prog-youth: #90b010;
+  --vpj-prog-school: #a01010;
+  /* Tipografía */
+  --vpj-font-display: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+  --vpj-font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+  --vpj-text-xs: 0.8125rem; /* 13px */
+  --vpj-text-sm: 0.9375rem; /* 15px */
+  --vpj-text-base: 1.0625rem; /* 17px */
+  --vpj-text-lg: 1.25rem; /* 20px */
+  --vpj-text-xl: 1.5rem; /* 24px */
+  --vpj-text-2xl: clamp(1.75rem, 1.4rem + 1.6vw, 2.375rem);
+  --vpj-text-3xl: clamp(2rem, 1.4rem + 2.6vw, 3rem);
+  --vpj-text-display: clamp(2.25rem, 1.5rem + 3.4vw, 3.75rem);
+  --vpj-leading-display: 1.05;
+  --vpj-leading-heading: 1.2;
+  --vpj-leading-body: 1.6;
+  --vpj-tracking-tight: -0.02em;
+  --vpj-tracking-label: 0.08em;
+  /* Espaciado */
+  --vpj-space-1: 0.25rem;
+  --vpj-space-2: 0.5rem;
+  --vpj-space-3: 0.75rem;
+  --vpj-space-4: 1rem;
+  --vpj-space-5: 1.5rem;
+  --vpj-space-6: 2rem;
+  --vpj-space-7: 3rem;
+  --vpj-space-8: 4rem;
+  --vpj-space-9: 6rem;
+  --vpj-space-10: 8rem;
+  /* Layout */
+  --vpj-container: 72rem;
+  --vpj-container-wide: 80rem;
+  --vpj-container-narrow: 46rem;
+  --vpj-gutter: 1.25rem;
+  --vpj-section-y: clamp(3.5rem, 2rem + 6vw, 6rem);
+  /* Radios y sombras */
+  --vpj-radius-sm: 8px;
+  --vpj-radius-md: 12px;
+  --vpj-radius-lg: 16px;
+  --vpj-radius-pill: 999px;
+  --vpj-shadow-sm: 0 1px 2px rgba(35, 38, 46, 0.06);
+  --vpj-shadow-md: 0 4px 16px rgba(35, 38, 46, 0.1);
+  --vpj-shadow-lg: 0 12px 32px rgba(35, 38, 46, 0.16);
+  /* Breakpoints (referencia; media queries con min-width) */
+  --vpj-bp-sm: 360px;
+  --vpj-bp-md: 768px;
+  --vpj-bp-lg: 1024px;
+  --vpj-bp-xl: 1440px;
+  /* Helpers del sitio (fuera de los 67 tokens base) */
+  --vpj-focus-ring: rgba(97, 107, 135, 0.55);
+}
+@media (min-width: 768px) {
+  :root { --vpj-gutter: 2rem; }
+}
+@media (min-width: 1024px) {
+  :root { --vpj-gutter: 2.5rem; }
+}
+
+/* --- 3. Reset moderno --- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+* { margin: 0; }
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+body {
+  min-height: 100dvh;
+  line-height: var(--vpj-leading-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+button { background: none; border: 0; }
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li { overflow-wrap: break-word; }
+ul[role="list"] { list-style: none; padding: 0; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* --- 4. Base --- */
+body {
+  font-family: var(--vpj-font-body);
+  font-size: var(--vpj-text-base);
+  font-weight: 400;
+  color: var(--vpj-text);
+  background-color: var(--vpj-bg);
+}
+::selection {
+  background-color: var(--vpj-primary-100);
+  color: var(--vpj-primary-dark);
+}
+
+/* --- 5. Tipografía (escala fluida, docs §2.3–2.4) --- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--vpj-font-display);
+  color: var(--vpj-text);
+  line-height: var(--vpj-leading-heading);
+  text-wrap: balance;
+}
+h1 {
+  font-size: var(--vpj-text-3xl);
+  font-weight: 700;
+  letter-spacing: var(--vpj-tracking-tight);
+  line-height: 1.1;
+}
+h2 {
+  font-size: var(--vpj-text-2xl);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+h3 {
+  font-size: var(--vpj-text-xl);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+h4 { font-size: var(--vpj-text-lg); font-weight: 600; }
+h5 { font-size: var(--vpj-text-base); font-weight: 600; }
+h6 { font-size: var(--vpj-text-sm); font-weight: 600; }
+p { max-width: 65ch; }
+a {
+  color: var(--vpj-primary-dark);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+a:hover { color: var(--vpj-accent); }
+a:focus-visible {
+  outline: 3px solid var(--vpj-focus-ring);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+ul { padding-left: 1.25em; }
+li + li { margin-top: var(--vpj-space-1); }
+
+/* --- 6. Componentes mínimos reutilizables --- */
+
+/* 6.1 Contenedor */
+.contenedor {
+  width: 100%;
+  max-width: var(--vpj-container);
+  margin-inline: auto;
+  padding-inline: var(--vpj-gutter);
+}
+
+/* 6.2 Sección */
+.seccion { padding-block: var(--vpj-section-y); }
+
+/* 6.3 Eyebrow / kicker */
+.eyebrow {
+  display: block;
+  font-family: var(--vpj-font-display);
+  font-size: var(--vpj-text-xs);
+  font-weight: 600;
+  letter-spacing: var(--vpj-tracking-label);
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: var(--vpj-primary-700);
+  margin-bottom: var(--vpj-space-2);
+}
+
+/* 6.4 Grid genérico */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--vpj-space-4);
+}
+
+/* 6.5 Tarjeta */
+.tarjeta {
+  background-color: var(--vpj-surface);
+  border: 1px solid var(--vpj-border);
+  border-radius: var(--vpj-radius-lg);
+  box-shadow: var(--vpj-shadow-sm);
+  padding: var(--vpj-space-5);
+}
+
+/* 6.6 Botones */
+.boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--vpj-space-2);
+  min-height: 44px;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid transparent;
+  border-radius: var(--vpj-radius-sm);
+  font-family: var(--vpj-font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.18s ease, color 0.18s ease,
+    border-color 0.18s ease, transform 0.12s ease, box-shadow 0.18s ease;
+}
+.boton:focus-visible {
+  outline: 3px solid var(--vpj-focus-ring);
+  outline-offset: 2px;
+}
+.boton:active { transform: translateY(1px); }
+.boton--primario { background-color: var(--vpj-primary); color: var(--vpj-text-on-dark); }
+.boton--primario:hover { background-color: var(--vpj-primary-700); color: var(--vpj-text-on-dark); }
+.boton--secundario {
+  background-color: transparent;
+  border-color: var(--vpj-primary);
+  color: var(--vpj-primary);
+}
+.boton--secundario:hover { background-color: var(--vpj-primary-100); color: var(--vpj-primary-dark); }
+/* WhatsApp: hover #1FBE57 según docs §4.11 (sin token propio) */
+.boton--whatsapp { background-color: var(--vpj-whatsapp); color: var(--vpj-whatsapp-text); }
+.boton--whatsapp:hover { background-color: #1fbe57; color: var(--vpj-whatsapp-text); }
+.boton:disabled,
+.boton[disabled],
+.boton[aria-disabled="true"] {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+  transform: none;
+}
+
+/* --- 7. Media queries mobile-first (breakpoints §3.4) ---
+   Base = 360 px (sin scroll horizontal). */
+
+/* ≥768 — tablet */
+@media (min-width: 768px) {
+  .grid { grid-template-columns: repeat(2, 1fr); gap: var(--vpj-space-5); }
+  .tarjeta { padding: var(--vpj-space-6); }
+}
+
+/* ≥1024 — desktop */
+@media (min-width: 1024px) {
+  .grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ≥1440 — desktop ancho */
+@media (min-width: 1440px) {
+  .grid { grid-template-columns: repeat(4, 1fr); }
+}

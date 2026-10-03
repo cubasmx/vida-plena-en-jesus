@@ -1,0 +1,118 @@
+---
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+
+const nav = [
+  { label: "Inicio", href: `${import.meta.env.BASE_URL}` },
+  { label: "Quiénes somos", href: `${base}/quienes-somos` },
+  { label: "Equipo VPJ", href: `${base}/equipo` },
+  { label: "Curso Internacional", href: `${base}/curso-internacional` },
+  { label: "Youth Project", href: `${base}/youth-project` },
+  { label: "Proyecto Familia", href: `${base}/proyecto-familia` },
+];
+
+const whatsapp = "https://wa.me/523317908012";
+const logo = `${import.meta.env.BASE_URL}images/logo-vpj.png`;
+---
+
+<header class="cabecera">
+  <div class="contenedor cabecera__inner">
+    <a class="cabecera__logo" href={import.meta.env.BASE_URL} aria-label="Vida Plena en Jesús — Inicio">
+      <img src={logo} alt="Vida Plena en Jesús" width="44" height="44" loading="eager" />
+      <span class="cabecera__nombre">Vida Plena en Jesús</span>
+    </a>
+
+    <button
+      class="cabecera__toggle"
+      type="button"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+      aria-controls="menu-principal"
+    >
+      <span class="cabecera__barra"></span>
+      <span class="cabecera__barra"></span>
+      <span class="cabecera__barra"></span>
+    </button>
+
+    <nav id="menu-principal" class="cabecera__nav" aria-label="Navegación principal">
+      <ul class="cabecera__lista">
+        {nav.map((item) => (
+          <li>
+            <a class="cabecera__enlace" href={item.href}>{item.label}</a>
+          </li>
+        ))}
+      </ul>
+      <a class="boton boton--whatsapp cabecera__cta" href={whatsapp} target="_blank" rel="noopener noreferrer">
+        Escríbenos
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>(".cabecera__toggle");
+  const header = document.querySelector<HTMLElement>(".cabecera");
+
+  if (toggle && header) {
+    const nav = header.querySelector<HTMLElement>("#menu-principal");
+    const setOpen = (open: boolean) => {
+      toggle.setAttribute("aria-expanded", String(open));
+      toggle.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
+      header.classList.toggle("abierto", open);
+    };
+
+    toggle.addEventListener("click", () => {
+      setOpen(toggle.getAttribute("aria-expanded") !== "true");
+    });
+
+    nav?.addEventListener("click", (e) => {
+      if ((e.target as HTMLElement).closest("a")) setOpen(false);
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") setOpen(false);
+    });
+
+    document.addEventListener("click", (e) => {
+      if (header.classList.contains("abierto") && !header.contains(e.target as Node)) setOpen(false);
+    });
+  }
+</script>
+
+<style>
+  .cabecera {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--vpj-primary-dark); color: #fff;
+  }
+
+  .cabecera__inner {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 1rem; min-height: 64px; flex-wrap: wrap;
+  }
+
+  .cabecera__logo { display: flex; align-items: center; gap: .6rem; color: inherit; text-decoration: none; }
+  .cabecera__logo img { display: block; }
+  .cabecera__nombre { font-weight: 700; }
+
+  .cabecera__toggle {
+    display: inline-flex; flex-direction: column; gap: 5px;
+    padding: .5rem; background: transparent; border: 0;
+    color: inherit; cursor: pointer;
+  }
+  .cabecera__barra { width: 24px; height: 2px; background: currentColor; border-radius: 2px; }
+
+  .cabecera__nav { display: none; width: 100%; }
+  .cabecera.abierto .cabecera__nav { display: block; }
+
+  .cabecera__lista { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: .25rem; }
+  .cabecera__enlace { display: block; padding: .75rem .25rem; color: inherit; text-decoration: none; font-weight: 500; }
+  .cabecera__enlace:hover { text-decoration: underline; }
+  .cabecera__cta { margin: .5rem 0 1rem; }
+
+  @media (min-width: 768px) {
+    .cabecera__toggle { display: none; }
+    .cabecera__nav { display: flex; width: auto; align-items: center; gap: 1.5rem; }
+    .cabecera__lista { flex-direction: row; gap: 1.5rem; }
+    .cabecera__enlace { padding: .5rem 0; }
+    .cabecera__cta { margin: 0; }
+  }
+</style>

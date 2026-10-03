@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://cubasmx.github.io/vida-plena-en-jesus/sitemap.xml

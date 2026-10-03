@@ -1,0 +1,45 @@
+---
+import Base from "../layouts/Base.astro";
+
+const base = import.meta.env.BASE_URL;
+
+const enlaces = [
+  { href: `${base}quienes-somos`, texto: "Quiénes somos" },
+  { href: `${base}curso-internacional`, texto: "Curso internacional" },
+  { href: `${base}equipo`, texto: "Equipo" },
+];
+---
+
+<Base
+  title="Página no encontrada | Vida Plena en Jesús"
+  description="La página que buscas no existe o cambió de dirección. Vuelve al inicio o visita las secciones principales de Vida Plena en Jesús."
+>
+  <section class="seccion">
+    <div class="contenedor">
+      <p class="etiqueta">Error 404</p>
+      <h1>Página no encontrada</h1>
+      <p class="mensaje">
+        Lo sentimos, no encontramos esta página. Puede que el enlace esté roto
+        o que la dirección haya cambiado; te invitamos a continuar desde aquí.
+      </p>
+      <nav class="acciones" aria-label="Enlaces de navegación">
+        <a class="boton boton--primario" href={base}>Ir al inicio</a>
+        {
+          enlaces.map(({ href, texto }) => (
+            <a class="boton boton--secundario" href={href}>
+              {texto}
+            </a>
+          ))
+        }
+      </nav>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .etiqueta { margin: 0 0 0.5rem; font-size: 0.875rem; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase; color: var(--vpj-primary); }
+  h1 { margin: 0 0 1rem; font-size: clamp(1.75rem, 6vw, 2.5rem); line-height: 1.15; }
+  .mensaje { margin: 0 auto 2rem; max-width: 48ch; }
+  .acciones { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; }
+</style>

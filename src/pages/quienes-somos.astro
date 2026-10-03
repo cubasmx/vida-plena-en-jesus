@@ -1,0 +1,97 @@
+---
+import Base from "../layouts/Base.astro";
+import content from "../data/content.json";
+
+const { seo, hero, mision, vision, iglesia, galeria } = content.pages.quienesSomos;
+const base = import.meta.env.BASE_URL;
+---
+
+<Base title={seo.title} description={seo.descripcion}>
+  <section class="seccion">
+    <div class="contenedor">
+      <p class="eyebrow">Quiénes somos</p>
+      <h1>{hero.titulo}</h1>
+      <p>{hero.subtitulo}</p>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <div class="contenedor grid">
+      <article class="tarjeta">
+        <p class="eyebrow">{mision.titulo}</p>
+        <p>{mision.texto}</p>
+      </article>
+      <article class="tarjeta">
+        <p class="eyebrow">{vision.titulo}</p>
+        <p>{vision.texto}</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <div class="contenedor">
+      <h2>{iglesia.titulo}</h2>
+      <div class="grid">
+        {
+          iglesia.items.map((item) => (
+            <article class="tarjeta">
+              {item.imagen && (
+                <img
+                  src={`${base}images/${item.imagen}`}
+                  alt={`Escudo de la ${item.titulo}`}
+                  width="480"
+                  height="320"
+                  loading="lazy"
+                  decoding="async"
+                />
+              )}
+              <h3>{item.titulo}</h3>
+              <p>{item.texto}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <div class="contenedor">
+      <p class="eyebrow">Galería</p>
+      <h2>Momentos de Vida Plena en Jesús</h2>
+      <div class="grid">
+        <img
+          src={`${base}images/quienes-karsten.webp`}
+          alt="Karsten compartiendo durante una actividad de evangelización"
+          width="600"
+          height="400"
+          loading="lazy"
+          decoding="async"
+        />
+        <img
+          src={`${base}images/quienes-gift.webp`}
+          alt="Entrega de obsequios en una actividad de Vida Plena en Jesús"
+          width="600"
+          height="400"
+          loading="lazy"
+          decoding="async"
+        />
+        <img
+          src={`${base}images/quienes-estudiantes.webp`}
+          alt="Estudiantes reunidos en una experiencia de evangelización"
+          width="600"
+          height="400"
+          loading="lazy"
+          decoding="async"
+        />
+        <img
+          src={`${base}images/quienes-aldo.webp`}
+          alt="Aldo predicando en un encuentro de Vida Plena en Jesús"
+          width="600"
+          height="400"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+    </div>
+  </section>
+</Base>

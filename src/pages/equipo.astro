@@ -1,0 +1,158 @@
+---
+import Base from "../layouts/Base.astro";
+import content from "../data/content.json";
+
+const { seo, hero, equipo, alianzas } = content.pages.equipo;
+const base = import.meta.env.BASE_URL;
+---
+
+<Base title={seo.title} description={seo.descripcion}>
+  <section class="seccion">
+    <div class="contenedor">
+      <p class="eyebrow">Equipo VPJ</p>
+      <h1>{hero.titulo}</h1>
+      <p class="versiculo">{hero.versiculo}</p>
+    </div>
+  </section>
+
+  <section class="seccion intro">
+    <div class="contenedor">
+      <p>{hero.texto}</p>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <div class="contenedor">
+      <img
+        class="banner"
+        src={`${base}images/${hero.imagen}`}
+        alt="Comunidad de Vida Plena en Jesús reunida en un encuentro"
+        width="1600"
+        height="1067"
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+  </section>
+
+  <section class="seccion">
+    <div class="contenedor">
+      <p class="eyebrow">Nuestro equipo</p>
+      <h2>{equipo.titulo}</h2>
+      <div class="grid equipo-grid">
+        {
+          equipo.personas.map((persona) => (
+            <article class="tarjeta ficha">
+              <img
+                src={`${base}images/${persona.foto}`}
+                alt={`Retrato de ${persona.nombre}, ${persona.cargo}`}
+                width="400"
+                height="400"
+                loading="lazy"
+                decoding="async"
+              />
+              <h3>{persona.nombre}</h3>
+              <p class="cargo">{persona.cargo}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <div class="contenedor">
+      <p class="eyebrow">Alianzas</p>
+      <h2>{alianzas.titulo}</h2>
+      <div class="grid alianzas-grid">
+        {
+          alianzas.items.map((aliado) => (
+            <article class="tarjeta alianza">
+              <img
+                src={`${base}images/${aliado.imagen}`}
+                alt={`Logotipo de ${aliado.nombre}`}
+                width="340"
+                height="340"
+                loading="lazy"
+                decoding="async"
+              />
+              <h3>{aliado.nombre}</h3>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .versiculo {
+    margin-top: var(--vpj-space-3);
+    font-family: var(--vpj-font-display);
+    font-size: var(--vpj-text-lg);
+    font-style: italic;
+    color: var(--vpj-primary-dark);
+  }
+  .intro p {
+    font-size: var(--vpj-text-lg);
+    color: var(--vpj-text-muted);
+  }
+  .banner {
+    width: 100%;
+    height: auto;
+    border-radius: var(--vpj-radius-lg);
+    box-shadow: var(--vpj-shadow-md);
+  }
+  .equipo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .ficha {
+    display: flex;
+    flex-direction: column;
+    gap: var(--vpj-space-3);
+    padding: var(--vpj-space-4);
+    text-align: center;
+  }
+  .ficha img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: var(--vpj-radius-md);
+  }
+  .ficha h3 {
+    font-size: var(--vpj-text-lg);
+  }
+  .cargo {
+    margin-inline: auto;
+    font-size: var(--vpj-text-sm);
+    color: var(--vpj-text-muted);
+  }
+  .alianzas-grid {
+    align-items: center;
+  }
+  .alianza {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--vpj-space-3);
+    text-align: center;
+  }
+  .alianza img {
+    width: 100%;
+    max-width: 180px;
+    height: auto;
+  }
+  .alianza h3 {
+    font-size: var(--vpj-text-base);
+  }
+  @media (min-width: 768px) {
+    .alianzas-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (min-width: 1024px) {
+    .equipo-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+</style>

@@ -1,0 +1,160 @@
+---
+import "../styles/global.css";
+import "../styles/componentes.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import content from "../data/content.json";
+
+interface Props {
+  title: string;
+  description: string;
+  slug?: string;
+  ogImage?: string;
+}
+
+const { title, description, slug = "", ogImage = "images/logo-vpj.png" } =
+  Astro.props as Props;
+
+const { site } = content;
+
+/** Origen canónico (funciona en GitHub Pages y en dominio propio). */
+const siteOrigin = Astro.site ?? new URL("https://vidaplenaenjesus.com/");
+
+/** URL absoluta de la página actual, usada como canonical y og:url. */
+const canonicalURL = new URL(import.meta.env.BASE_URL + slug, siteOrigin);
+
+/** Resuelve rutas relativas del proyecto a URL absolutas. */
+const toAbsolute = (path: string): string => {
+  if (/^https?:\/\//i.test(path)) return path;
+  return new URL(
+    import.meta.env.BASE_URL + path.replace(/^\/+/, ""),
+    siteOrigin,
+  ).href;
+};
+
+const ogImageURL = toAbsolute(ogImage);
+const faviconURL = `${import.meta.env.BASE_URL}favicon.svg`;
+const logoURL = toAbsolute("images/logo-vpj.png");
+const heroImageURL = toAbsolute("images/hero.webp");
+const siteURL = new URL(import.meta.env.BASE_URL, siteOrigin).href;
+
+/* Redes para `sameAs` (se excluye WhatsApp: no es perfil de entidad). */
+const sameAs = site.redes
+  .filter((red) => red.nombre !== "WhatsApp")
+  .map((red) => red.url);
+
+/* Único bloque JSON-LD con @graph (docs/seo.md §4). */
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["Organization", "ReligiousOrganization", "LocalBusiness"],
+      "@id": `${siteURL}#organizacion`,
+      name: site.nombre,
+      alternateName: "VPJ",
+      url: siteURL,
+      logo: {
+        "@type": "ImageObject",
+        url: logoURL,
+      },
+      image: heroImageURL,
+      description:
+        "Organismo católico de evangelización en Guadalajara. Formación para adultos, matrimonios y jóvenes, retiros para colegios y acompañamiento pastoral.",
+      email: site.contacto.email,
+      telephone: site.contacto.telefono,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Av. Alemania, Av. 8 de Julio, Moderna",
+        addressLocality: "Guadalajara",
+        addressRegion: "Jalisco",
+        postalCode: "44190",
+        addressCountry: "MX",
+      },
+      areaServed: [
+        { "@type": "City", name: "Guadalajara" },
+        { "@type": "AdministrativeArea", name: "Jalisco" },
+      ],
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "customer service",
+        telephone: site.contacto.telefono,
+        email: site.contacto.email,
+        availableLanguage: ["es"],
+      },
+      sameAs,
+      founder: {
+        "@type": "Person",
+        name: "Clara Macías",
+      },
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteURL}#website`,
+      url: siteURL,
+      name: site.nombre,
+      inLanguage: "es-MX",
+      publisher: { "@id": `${siteURL}#organizacion` },
+    },
+  ],
+};
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+
+    <link rel="icon" type="image/svg+xml" href={faviconURL} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.nombre} />
+    <meta property="og:locale" content="es_MX" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={ogImageURL} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+    <style>
+      .skip-link {
+        position: absolute;
+        top: -100%;
+        left: var(--vpj-space-4);
+        z-index: 100;
+        padding: 0.75rem 1.25rem;
+        background-color: var(--vpj-primary-dark);
+        color: var(--vpj-text-on-dark);
+        font-family: var(--vpj-font-display);
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: var(--vpj-radius-sm);
+        transition: top 0.18s ease;
+      }
+      .skip-link:focus-visible {
+        top: var(--vpj-space-4);
+        color: var(--vpj-text-on-dark);
+      }
+    </style>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#contenido">Ir al contenido principal</a>
+    <Header />
+    <main id="contenido">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

@@ -1,0 +1,326 @@
+{
+  "site": {
+    "nombre": "Vida Plena en Jesús",
+    "lema": "Llamados a evangelizar en la Iglesia Católica",
+    "versiculo": {
+      "texto": "Yo he venido para que tengan vida y la tengan en abundancia",
+      "cita": "Jn. 10, 10"
+    },
+    "logo": "logo-vpj.png",
+    "contacto": {
+      "direccion": "Avenida Alemania, Av 8 de Julio, Moderna, 44190 Guadalajara, Jal.",
+      "telefono": "+52 33 1790 8012",
+      "email": "vidaplenaenjesusgdl@gmail.com",
+      "whatsapp": "https://wa.me/523317908012"
+    },
+    "redes": [
+      { "nombre": "WhatsApp", "url": "https://wa.me/523317908012", "icono": "social-whatsapp.png" },
+      { "nombre": "Facebook", "url": "https://www.facebook.com/vidaplenaenjesusgdl", "icono": "social-facebook.png" },
+      { "nombre": "Instagram", "url": "https://www.instagram.com/vidaplenaenjesusgdl", "icono": "social-instagram.png" },
+      { "nombre": "YouTube", "url": "https://www.youtube.com/channel/UCv3UrUAx64H5tl-6N4qP78w", "icono": "social-youtube.png" }
+    ]
+  },
+  "navigation": [
+    { "label": "Inicio", "href": "/" },
+    { "label": "Quiénes somos", "href": "/quienes-somos" },
+    { "label": "Equipo VPJ", "href": "/equipo" },
+    { "label": "Curso Internacional", "href": "/curso-internacional" },
+    { "label": "Youth Project", "href": "/youth-project", "labelOriginal": "Courses" },
+    { "label": "Proyecto Familia", "href": "/proyecto-familia" }
+  ],
+  "footer": {
+    "copyright": "© 2024 Creado por Gabriela Gómez",
+    "nota": "Confirmar titularidad, año y autoría del pie de página antes de publicar.",
+    "redes": "social"
+  },
+  "pages": {
+    "home": {
+      "seo": {
+        "title": "Inicio | Vida Plena en Jesús",
+        "descripcion": "Somos un organismo evangelizador católico en Guadalajara, integrado por católicos apasionados por Jesús. Conoce nuestros programas de evangelización."
+      },
+      "hero": {
+        "titulo": "VIDA PLENA EN JESÚS",
+        "subtitulo": "LLAMADOS A EVANGELIZAR EN LA IGLESIA CATÓLICA",
+        "versiculo": "YO HE VENIDO PARA QUE TENGAN VIDA Y LA TENGAN EN ABUNDANCIA",
+        "cita": "Jn. 10, 10",
+        "imagen": "hero.webp"
+      },
+      "intro": {
+        "texto": "Somos un organismo evangelizador, integrado por católicos apasionados por Jesús",
+        "imagen": "vaticano.webp",
+        "ctas": [
+          { "texto": "Quiénes somos", "href": "/quienes-somos" },
+          { "texto": "Nuestro equipo", "href": "/equipo" }
+        ]
+      },
+      "ofrecemos": {
+        "titulo": "Ofrecemos",
+        "items": [
+          { "texto": "Asesoría y acompañamiento en procesos pastorales", "imagen": "ofrece-1.webp" },
+          { "texto": "Experiencias de primera evangelización", "imagen": "ofrece-2.webp" },
+          { "texto": "Formación de nuevos predicadores y misioneros", "imagen": "ofrece-3.webp" },
+          { "texto": "Predicación en eventos masivos", "imagen": "ofrece-4.webp" }
+        ]
+      },
+      "programas": {
+        "titulo": "Programas de evangelización",
+        "btn": "Leer más",
+        "items": [
+          {
+            "titulo": "Formación para adultos y agentes de Pastoral",
+            "dirigidoA": "Adultos, agentes de pastoral, religiosos /as, sacerdotes, seminaristas",
+            "imagen": "prog-kerygma.png",
+            "programa": "Proyecto Kerygma",
+            "href": null
+          },
+          {
+            "titulo": "Formación para matrimonios",
+            "dirigidoA": "Matrimonios jóvenes y adultos",
+            "imagen": "prog-familia.png",
+            "programa": "Proyecto Familia",
+            "href": "/proyecto-familia"
+          },
+          {
+            "titulo": "Formación para adolescentes y jóvenes",
+            "dirigidoA": "Adolescentes y jóvenes",
+            "imagen": "prog-youth.png",
+            "programa": "Youth Project",
+            "href": "/youth-project"
+          },
+          {
+            "titulo": "Retiros kerigmáticos para colegios",
+            "dirigidoA": "Alumnos de: Kinder, primaria, secundaria, bachillerato. Padres de familia, personal docente y administrativo",
+            "imagen": "prog-school.png",
+            "programa": "School Project",
+            "href": null
+          }
+        ]
+      },
+      "contacto": {
+        "titulo": "Contacto",
+        "direccion": "Avenida Alemania, Av 8 de Julio, Moderna, 44190 Guadalajara, Jal.",
+        "telefono": "+52 33 1790 8012",
+        "email": "vidaplenaenjesusgdl@gmail.com",
+        "whatsapp": "https://wa.me/523317908012",
+        "formulario": {
+          "campos": ["Primer nombre", "Apellido", "Email", "Mensaje"],
+          "exito": "Gracias por escribirnos",
+          "boton": "Enviar"
+        }
+      }
+    },
+    "quienesSomos": {
+      "seo": {
+        "title": "Quiénes somos | Vida Plena en Jesús",
+        "descripcion": "Somos VPJ: llamados a evangelizar y formar a los cristianos católicos por medio del kerigma. Conoce nuestra misión, visión y relación con la Iglesia Católica."
+      },
+      "hero": {
+        "titulo": "Somos VPJ",
+        "subtitulo": "Llamados a evangelizar y formar a los cristianos católicos por medio del kerigma."
+      },
+      "mision": {
+        "titulo": "Misión",
+        "texto": "Evangelizar y formar a los bautizados en las diferentes etapas de la vida, por medio de una predicación kerigmática."
+      },
+      "vision": {
+        "titulo": "Visión",
+        "texto": "Ser un organismo evangelizador que evangeliza y capacita nuevos evangelizadores kerygmáticos que impacten de forma positiva en la Iglesia Católica."
+      },
+      "iglesia": {
+        "titulo": "Nuestra relación con la Iglesia Católica",
+        "items": [
+          {
+            "titulo": "Arquidiócesis de Guadalajara",
+            "texto": "Somos parte del Área de Movimientos Laicales de la Arquidiócesis de GDL.",
+            "imagen": "arquidiocesis.webp"
+          },
+          {
+            "titulo": "Santa Sede, Vaticano",
+            "texto": "Anualmente, presentamos un reporte de actividades realizadas por Vida Plena al Dicasterio de la Nueva Evangelización, en el Vaticano.",
+            "imagen": null
+          }
+        ]
+      },
+      "galeria": [
+        { "imagen": "quienes-karsten.webp" },
+        { "imagen": "quienes-gift.webp" },
+        { "imagen": "quienes-estudiantes.webp" },
+        { "imagen": "quienes-aldo.webp" }
+      ]
+    },
+    "equipo": {
+      "seo": {
+        "title": "Equipo VPJ | Vida Plena en Jesús",
+        "descripcion": "Somos familia evangelizadora. Conoce al equipo de evangelizadores laicos a tiempo completo de Vida Plena en Jesús y nuestras alianzas."
+      },
+      "hero": {
+        "titulo": "Somos familia evangelizadora",
+        "versiculo": "Llamó a los que quiso para que estuvieran con Él. Mc. 3, 13",
+        "texto": "En Vida Plena en Jesús buscamos ser una familia evangelizadora, integrada por nuestro asesor, el equipo de tiempo completo y la familia VPJ. Todos colaborando para que el evangelio se dé a conocer.",
+        "imagen": "equipo-banner.webp"
+      },
+      "equipo": {
+        "titulo": "Evangelizadores laicos a tiempo completo",
+        "personas": [
+          { "nombre": "Lic. Clara Macías", "cargo": "Fundadora & Directora", "foto": "equipo-clara-macias.webp" },
+          { "nombre": "Lic. Ana Gabriela Gómez", "cargo": "Coord. Youth Project", "foto": "equipo-ana-gabriela.webp" },
+          { "nombre": "José Manuel Mendoza", "cargo": "Administrador", "foto": "equipo-jose-manuel.webp" },
+          { "nombre": "Mariana Gpe. Orozco", "cargo": "Evangelizadora", "foto": "equipo-mariana.webp" },
+          { "nombre": "Victor Hugo Moreno", "cargo": "Evangelizador", "foto": "equipo-victor-hugo.webp" },
+          { "nombre": "José Ángel Romero", "cargo": "Evangelizador", "foto": "equipo-jose-angel.webp" },
+          { "nombre": "Juan Pablo Becerra", "cargo": "Evangelizador", "foto": "equipo-juan-pablo.webp" },
+          { "nombre": "Lic. Clara Cecilia Parra", "cargo": "Evangelizadora", "foto": "equipo-clara-cecilia.webp" }
+        ]
+      },
+      "alianzas": {
+        "titulo": "Alianzas",
+        "items": [
+          { "nombre": "Centro Kerygma Internacional", "imagen": "alianza-1.webp" },
+          { "nombre": "peregrinaciones.mx", "imagen": "alianza-2.webp" }
+        ]
+      }
+    },
+    "cursoInternacional": {
+      "seo": {
+        "title": "Curso Internacional | Vida Plena en Jesús",
+        "descripcion": "Curso Internacional de Vida Plena en Jesús: retiro de Adviento con distintas modalidades y cuatro temas de formación."
+      },
+      "hero": {
+        "titulo": "Curso Internacional",
+        "subtitulo": "PADRE NUESTRO",
+        "imagen": "curso-banner.png"
+      },
+      "objetivo": {
+        "titulo": "Objetivo:",
+        "texto": "El retiro de Adviento se puede dar de distintas formas:",
+        "modalidades": [
+          "Como Semana de Adviento, de lunes a viernes por las noches después de la Eucaristía (duración de 1 h a 1:30 hrs.)",
+          "Como retiro de un solo día (sábado o domingo)",
+          "Como retiro de un fin de semana (sábado por la tarde y domingo por la mañana)"
+        ]
+      },
+      "cta": {
+        "texto": "Da click y contáctanos",
+        "href": "https://wa.me/523317908012",
+        "canal": "WhatsApp"
+      },
+      "temas": [
+        { "titulo": "Introducción", "texto": "Adviento: viviendo la dinámica de esperanza." },
+        { "titulo": "Tema 1", "texto": "En camino a Belén" },
+        { "titulo": "Tema 2", "texto": "Camino de conversión" },
+        { "titulo": "Tema 3", "texto": "La gran espera: Preparando el corazón con María" },
+        { "titulo": "Tema 4", "texto": "Navidad: el nacimiento de nuestro Salvador" }
+      ],
+      "galeria": [
+        { "imagen": "curso-jaclyn.webp" },
+        { "imagen": "curso-cristina.webp" },
+        { "imagen": "curso-suzanne.webp" },
+        { "imagen": "curso-maria.webp" },
+        { "imagen": "curso-adviento.png" }
+      ]
+    },
+    "youthProject": {
+      "seo": {
+        "title": "Youth Project | Vida Plena en Jesús",
+        "descripcion": "Youth Project de Vida Plena en Jesús: seis cursos de primer anuncio y discipulado para jóvenes, y la misión juvenil Mar Adentro."
+      },
+      "hero": {
+        "titulo": "Youth Project",
+        "subtitulo": "Mi Primer encuentro con Jesús",
+        "logo": "you-logo.png",
+        "imagen": "you-extra.webp"
+      },
+      "cursos": {
+        "duracionComun": "72 hrs",
+        "items": [
+          {
+            "titulo": "Mi Primer encuentro con Jesús",
+            "descripcion": "Se trata de un curso de \"primer anuncio\" y pretende ayudar a los participantes a tener el primer encuentro personal con Jesús.",
+            "duracion": "72 hrs",
+            "imagen": "you-1.webp"
+          },
+          {
+            "titulo": "Amistad con Jesús",
+            "descripcion": "Este curso se centrará en diez temas que tienen como objetivo principal conocer la persona de Jesús, para llegar así a ser amigos y discípulos.",
+            "duracion": "72 hrs",
+            "imagen": "you-2.webp"
+          },
+          {
+            "titulo": "Tú eres precioso",
+            "descripcion": "Por medio de la Palabra de Dios descubriremos las mentiras del demonio y el mundo sobre nuestra persona y cuál es el verdadero valor que tenemos a los ojos de Dios.",
+            "duracion": "72 hrs",
+            "imagen": "you-3.webp"
+          },
+          {
+            "titulo": "7 Jóvenes del Evangelio",
+            "descripcion": "A través de este curso se invita a los jóvenes a dar una respuesta a Jesús que les invita a ser sus discípulos y vivir como tales.",
+            "duracion": "72 hrs",
+            "imagen": "you-4.webp"
+          },
+          {
+            "titulo": "Heaven Sex",
+            "descripcion": "Catequesis de la Teología del cuerpo de San Juan Pablo II, adaptada para jóvenes.",
+            "duracion": "72 hrs",
+            "imagen": "you-5.webp"
+          },
+          {
+            "titulo": "Youth for Youth",
+            "descripcion": "Descubrir y poner en práctica nuestro ser misionero.",
+            "duracion": "72 hrs",
+            "imagen": "you-6.webp"
+          }
+        ]
+      },
+      "marAdentro": {
+        "titulo": "Mar Adentro",
+        "subtitulo": "youth mission",
+        "texto": "Es la misión juvenil de Vida Plena en Jesús donde se invita a jóvenes de distintas partes a vivir la experiencia de vivir como un evangelizador a tiempo completo durante un mes en verano."
+      }
+    },
+    "proyectoFamilia": {
+      "seo": {
+        "title": "Proyecto Familia | Vida Plena en Jesús",
+        "descripcion": "Proceso Family Project de Vida Plena en Jesús: seis cursos de formación y acompañamiento para matrimonios."
+      },
+      "hero": {
+        "titulo": "Proceso Family Project",
+        "imagen": "familia-banner.webp"
+      },
+      "cursos": {
+        "items": [
+          {
+            "titulo": "Curso Job",
+            "descripcion": "Llevar a los cónyuges a un encuentro con Jesús con su palabra y la oración para que desde ahí afronten juntos las pruebas, ya que en unidad las alegrías se multiplican y las penas se dividen.",
+            "imagen": "familia-1.webp"
+          },
+          {
+            "titulo": "Cinco panes y dos peces",
+            "descripcion": "Conocer las etapas del matrimonio para poder estar preparados cuando llegan los cambios de pasara de otra y no nos lleven a una crisis.",
+            "imagen": "familia-2.webp"
+          },
+          {
+            "titulo": "Curso El Esposo y los esposos",
+            "descripcion": "Enseñar la extraordinaria unidad que existe entre la historia de amor de la pareja de esposos hombre-mujer y la historia de amor entre Dios y la humanidad, a través de una ruta que enfatice el carácter conyugal de la Eucaristía, \"sacramento del esposo y la esposa\".",
+            "imagen": "familia-3.png"
+          },
+          {
+            "titulo": "Curso Nazareth",
+            "descripcion": "Que la pareja tenga un encuentro con Dios y pueda experimentar dejarse salvar por Dios, invitándolo al centro de su matrimonio, aceptándolo como el Señor y Rey de su matrimonio.",
+            "imagen": "familia-4.webp"
+          },
+          {
+            "titulo": "Curso Bodas de Caná",
+            "descripcion": "Ofrecer principios fundamentales que ayudan para crecer en la espiritualidad de pareja y de la familia.",
+            "imagen": null
+          },
+          {
+            "titulo": "Curso Azarías",
+            "descripcion": "Vivir el viaje de la vida de pareja ayudados por el ángel de Dios en persona.",
+            "imagen": null
+          }
+        ]
+      }
+    }
+  }
+}

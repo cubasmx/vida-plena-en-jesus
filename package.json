@@ -1,0 +1,17 @@
+{
+  "name": "vida-plena-en-jesus",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Sitio estático de Vida Plena en Jesús (Guadalajara) — Astro sin backend.",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "astro": "^5.13.0",
+    "@fontsource-variable/plus-jakarta-sans": "^5.0.0",
+    "@fontsource-variable/inter": "^5.0.0"
+  }
+}

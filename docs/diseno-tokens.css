@@ -1,0 +1,105 @@
+/* ==========================================================================
+   Vida Plena en Jesús — tokens de diseño (referencia)
+   Ver docs/diseno.md para justificación y uso.
+   ========================================================================== */
+
+:root {
+  /* --- Paleta: marca --- */
+  --vpj-primary: #616b87;
+  --vpj-primary-dark: #34476a;
+  --vpj-primary-700: #4e5872;
+  --vpj-primary-100: #e8ecf2;
+  --vpj-accent: #9a1b26;
+  --vpj-accent-dark: #7d141d;
+
+  /* --- Paleta: fondos y superficies --- */
+  --vpj-bg: #ffffff;
+  --vpj-bg-alt: #f4f6f9;
+  --vpj-bg-slate: #d8dce2;
+  --vpj-surface: #ffffff;
+  --vpj-border: #d6dbe4;
+  --vpj-border-strong: #bfc7d4;
+
+  /* --- Paleta: texto --- */
+  --vpj-text: #23262e;
+  --vpj-text-muted: #5c6370;
+  --vpj-text-on-dark: #ffffff;
+  --vpj-white-72: rgba(255, 255, 255, 0.72);
+  --vpj-overlay: rgba(35, 38, 46, 0.6);
+
+  /* --- Paleta: WhatsApp y acentos de programa --- */
+  --vpj-whatsapp: #25d366;
+  --vpj-whatsapp-dark: #0b6e5f;
+  --vpj-whatsapp-text: #0b3d2e;
+  --vpj-prog-kerygma: #5b9fd0;
+  --vpj-prog-familia: #e04020;
+  --vpj-prog-youth: #90b010;
+  --vpj-prog-school: #a01010;
+
+  /* --- Tipografía --- */
+  --vpj-font-display: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+  --vpj-font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+
+  --vpj-text-xs: 0.8125rem; /* 13px */
+  --vpj-text-sm: 0.9375rem; /* 15px */
+  --vpj-text-base: 1.0625rem; /* 17px */
+  --vpj-text-lg: 1.25rem; /* 20px */
+  --vpj-text-xl: 1.5rem; /* 24px */
+  --vpj-text-2xl: clamp(1.75rem, 1.4rem + 1.6vw, 2.375rem);
+  --vpj-text-3xl: clamp(2rem, 1.4rem + 2.6vw, 3rem);
+  --vpj-text-display: clamp(2.25rem, 1.5rem + 3.4vw, 3.75rem);
+
+  --vpj-leading-display: 1.05;
+  --vpj-leading-heading: 1.2;
+  --vpj-leading-body: 1.6;
+  --vpj-tracking-tight: -0.02em;
+  --vpj-tracking-label: 0.08em;
+
+  /* --- Espaciado --- */
+  --vpj-space-1: 0.25rem;
+  --vpj-space-2: 0.5rem;
+  --vpj-space-3: 0.75rem;
+  --vpj-space-4: 1rem;
+  --vpj-space-5: 1.5rem;
+  --vpj-space-6: 2rem;
+  --vpj-space-7: 3rem;
+  --vpj-space-8: 4rem;
+  --vpj-space-9: 6rem;
+  --vpj-space-10: 8rem;
+
+  /* --- Layout --- */
+  --vpj-container: 72rem;
+  --vpj-container-wide: 80rem;
+  --vpj-container-narrow: 46rem;
+  --vpj-gutter: 1.25rem;
+  --vpj-section-y: clamp(3.5rem, 2rem + 6vw, 6rem);
+
+  /* --- Radios y sombras --- */
+  --vpj-radius-sm: 8px;
+  --vpj-radius-md: 12px;
+  --vpj-radius-lg: 16px;
+  --vpj-radius-pill: 999px;
+  --vpj-shadow-sm: 0 1px 2px rgba(35, 38, 46, 0.06);
+  --vpj-shadow-md: 0 4px 16px rgba(35, 38, 46, 0.1);
+  --vpj-shadow-lg: 0 12px 32px rgba(35, 38, 46, 0.16);
+
+  /* --- Breakpoints (referencia; media queries usan min-width) --- */
+  --vpj-bp-sm: 360px;
+  --vpj-bp-md: 768px;
+  --vpj-bp-lg: 1024px;
+  --vpj-bp-xl: 1440px;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --vpj-gutter: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --vpj-gutter: 2.5rem;
+  }
+}

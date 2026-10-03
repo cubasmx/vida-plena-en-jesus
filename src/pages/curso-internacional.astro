@@ -1,0 +1,106 @@
+---
+import Base from "../layouts/Base.astro";
+import content from "../data/content.json";
+
+const { seo, hero, objetivo, cta, temas, galeria } =
+  content.pages.cursoInternacional;
+const base = import.meta.env.BASE_URL;
+
+const whatsapp = cta.href || "https://wa.me/523317908012";
+
+const alts = {
+  "curso-jaclyn.webp":
+    "Jaclyn compartiendo durante el Curso Internacional de Vida Plena en Jesús",
+  "curso-cristina.webp":
+    "Cristina dirigiendo un tema del retiro de Adviento",
+  "curso-suzanne.webp":
+    "Suzanne predicando en un encuentro del Curso Internacional",
+  "curso-maria.webp":
+    "María acompañando a las participantes del curso",
+  "curso-adviento.png":
+    "Ambientación del retiro de Adviento con la corona y las velas",
+} as Record<string, string>;
+---
+
+<Base title={seo.title} description={seo.descripcion} slug="curso-internacional">
+  <section class="seccion">
+    <div class="contenedor">
+      <p class="eyebrow">Curso Internacional</p>
+      <h1>{hero.titulo}</h1>
+      {/* TODO: confirmar con el cliente */}
+      <p>{hero.subtitulo}</p>
+      <img
+        src={`${base}images/${hero.imagen}`}
+        alt="Banner del Curso Internacional de Vida Plena en Jesús"
+        width="1600"
+        height="600"
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+  </section>
+
+  <section class="seccion">
+    <div class="contenedor">
+      <h2>{objetivo.titulo}</h2>
+      <p>{objetivo.texto}</p>
+      <ul>
+        {objetivo.modalidades.map((modalidad) => <li>{modalidad}</li>)}
+      </ul>
+      <a class="boton boton--primario" href={whatsapp} rel="noopener">
+        {cta.texto}
+      </a>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <div class="contenedor">
+      <p class="eyebrow">Temario</p>
+      <h2>Los temas del curso</h2>
+      <div class="grid">
+        {
+          temas.map((tema) => (
+            <article class="tarjeta">
+              <p class="eyebrow">{tema.titulo}</p>
+              <h3>{tema.texto}</h3>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <div class="contenedor">
+      <h2>Más información</h2>
+      <p>
+        Escríbenos por {cta.canal} para llevar el Curso Internacional a tu
+        comunidad.
+      </p>
+      <a class="boton boton--primario" href={whatsapp} rel="noopener">
+        {cta.texto}
+      </a>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <div class="contenedor">
+      <p class="eyebrow">Galería</p>
+      <h2>Momentos del Curso Internacional</h2>
+      <div class="grid">
+        {
+          galeria.map((foto) => (
+            <img
+              src={`${base}images/${foto.imagen}`}
+              alt={alts[foto.imagen] ?? "Momento del Curso Internacional"}
+              width="600"
+              height="400"
+              loading="lazy"
+              decoding="async"
+            />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</Base>

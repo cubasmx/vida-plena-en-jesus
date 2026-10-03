@@ -1,0 +1,155 @@
+---
+import Base from "../layouts/Base.astro";
+import content from "../data/content.json";
+
+const pf = content.pages.proyectoFamilia;
+const base = import.meta.env.BASE_URL;
+const img = (file: string) => `${base}images/${file}`;
+const cursos = (pf.cursos.items ?? []).filter((curso) => curso.imagen);
+const whatsapp = content.site.contacto.whatsapp;
+const email = content.site.contacto.email;
+---
+
+<Base title={pf.seo.title} description={pf.seo.descripcion} slug="proyecto-familia">
+  <!-- HERO -->
+  <section class="hero-familia">
+    <div class="contenedor hero-familia__contenido">
+      <p class="eyebrow">Matrimonios</p>
+      <h1>{pf.hero.titulo}</h1>
+      <p class="hero-familia__intro">
+        Formación y acompañamiento para que los esposos crezcan en su matrimonio
+        con Cristo en el centro.
+      </p>
+    </div>
+    <div class="contenedor hero-familia__banner">
+      <img
+        src={img(pf.hero.imagen)}
+        alt="Matrimonios participantes del Proceso Family Project de Vida Plena en Jesús"
+        width="1280"
+        height="720"
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+  </section>
+
+  <!-- CURSOS -->
+  <section class="seccion">
+    <div class="contenedor">
+      <p class="eyebrow">Cursos</p>
+      <h2>Formación para matrimonios</h2>
+      <p class="cursos__intro">
+        Seis cursos pensados para acompañar a las parejas en cada etapa de su
+        vida conyugal y familiar.
+      </p>
+      <div class="grid grid--cursos">
+        {
+          cursos.map((curso) => (
+            <article class="tarjeta tarjeta--curso">
+              <img
+                src={img(curso.imagen)}
+                alt={`Imagen del ${curso.titulo}`}
+                width="640"
+                height="360"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="tarjeta__cuerpo">
+                <h3>{curso.titulo}</h3>
+                <p>{curso.descripcion}</p>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="seccion seccion-cta">
+    <div class="contenedor seccion-cta__contenido">
+      <p class="eyebrow">Contáctanos</p>
+      <h2>¿Te interesa el Proceso Family Project?</h2>
+      <p>
+        Escríbenos para conocer las fechas, sedes y modalidades del próximo
+        curso para matrimonios.
+      </p>
+      <div class="seccion-cta__botones">
+        <a class="boton boton--whatsapp" href={whatsapp} target="_blank" rel="noopener noreferrer">
+          Escríbenos por WhatsApp
+        </a>
+        <a class="boton boton--secundario" href={`mailto:${email}`}>Enviar un correo</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero-familia { padding-block: 2.5rem 0; }
+  .hero-familia__contenido { text-align: center; }
+
+  .hero-familia__contenido h1 {
+    margin: 0.25rem 0 0.5rem;
+    font-size: clamp(2rem, 6vw, 3.25rem);
+    line-height: 1.1;
+  }
+
+  .hero-familia__intro {
+    max-width: 52ch;
+    margin: 0 auto;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+  }
+
+  .hero-familia__banner { margin-top: 2rem; }
+
+  .hero-familia__banner img,
+  .tarjeta--curso img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  .hero-familia__banner img { border-radius: 0.75rem; }
+
+  .cursos__intro { max-width: 60ch; margin: 0.5rem 0 0; }
+
+  .grid--cursos {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 1.75rem;
+  }
+
+  .tarjeta--curso {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .tarjeta__cuerpo { padding: 1.25rem; }
+  .tarjeta__cuerpo h3 { margin-top: 0; }
+  .tarjeta__cuerpo p:last-child { margin-bottom: 0; }
+
+  .seccion-cta { background: var(--vpj-primary-100); }
+
+  .seccion-cta__contenido { max-width: 640px; text-align: center; }
+
+  .seccion-cta__botones {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .grid--cursos { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (min-width: 1024px) {
+    .grid--cursos { grid-template-columns: repeat(3, 1fr); }
+    .hero-familia { padding-block: 3.5rem 0; }
+  }
+</style>
