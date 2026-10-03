@@ -23,18 +23,19 @@ const alts = {
 ---
 
 <Base title={seo.title} description={seo.descripcion} slug="curso-internacional">
-  <section class="seccion">
+  <section class="seccion seccion--banner">
     <div class="contenedor">
-      <p class="eyebrow">Curso Internacional</p>
       <h1>{hero.titulo}</h1>
       {/* TODO: confirmar con el cliente */}
-      <p>{hero.subtitulo}</p>
+      <p class="subtitulo">{hero.subtitulo}</p>
       <img
+        class="banner"
         src={`${base}images/${hero.imagen}`}
         alt="Banner del Curso Internacional de Vida Plena en Jesús"
         width="1600"
         height="600"
-        loading="lazy"
+        loading="eager"
+        fetchpriority="high"
         decoding="async"
       />
     </div>
@@ -60,7 +61,7 @@ const alts = {
       <div class="grid">
         {
           temas.map((tema) => (
-            <article class="tarjeta">
+            <article class="tema">
               <p class="eyebrow">{tema.titulo}</p>
               <h3>{tema.texto}</h3>
             </article>
@@ -87,7 +88,7 @@ const alts = {
     <div class="contenedor">
       <p class="eyebrow">Galería</p>
       <h2>Momentos del Curso Internacional</h2>
-      <div class="grid">
+      <div class="galeria">
         {
           galeria.map((foto) => (
             <img
@@ -104,3 +105,20 @@ const alts = {
     </div>
   </section>
 </Base>
+
+<style>
+  .subtitulo {
+    margin-top: var(--vpj-space-1);
+    font-size: var(--vpj-text-lg);
+    color: var(--vpj-text-muted);
+  }
+
+  .seccion--banner {
+    padding-bottom: 0;
+  }
+
+  .tema {
+    padding-block: var(--vpj-space-3);
+    border-top: 1px solid var(--vpj-border);
+  }
+</style>

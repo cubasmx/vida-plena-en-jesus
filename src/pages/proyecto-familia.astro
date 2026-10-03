@@ -5,7 +5,7 @@ import content from "../data/content.json";
 const pf = content.pages.proyectoFamilia;
 const base = import.meta.env.BASE_URL;
 const img = (file: string) => `${base}images/${file}`;
-const cursos = (pf.cursos.items ?? []).filter((curso) => curso.imagen);
+const cursos = pf.cursos.items ?? [];
 const whatsapp = content.site.contacto.whatsapp;
 const email = content.site.contacto.email;
 ---
@@ -46,14 +46,18 @@ const email = content.site.contacto.email;
         {
           cursos.map((curso) => (
             <article class="tarjeta tarjeta--curso">
-              <img
-                src={img(curso.imagen)}
-                alt={`Imagen del ${curso.titulo}`}
-                width="640"
-                height="360"
-                loading="lazy"
-                decoding="async"
-              />
+              {curso.imagen ? (
+                <img
+                  src={img(curso.imagen)}
+                  alt={`Imagen del ${curso.titulo}`}
+                  width="640"
+                  height="360"
+                  loading="lazy"
+                  decoding="async"
+                />
+              ) : (
+                <div class="curso__sinimagen" aria-hidden="true"></div>
+              )}
               <div class="tarjeta__cuerpo">
                 <h3>{curso.titulo}</h3>
                 <p>{curso.descripcion}</p>
@@ -126,6 +130,12 @@ const email = content.site.contacto.email;
     display: flex;
     flex-direction: column;
     overflow: hidden;
+  }
+
+  .curso__sinimagen {
+    aspect-ratio: 16 / 9;
+    background: var(--vpj-bg-alt);
+    border-radius: var(--vpj-radius-md);
   }
 
   .tarjeta__cuerpo { padding: 1.25rem; }

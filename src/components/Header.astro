@@ -108,11 +108,18 @@ const logo = `${import.meta.env.BASE_URL}images/logo-vpj.png`;
   .cabecera__enlace:hover { text-decoration: underline; }
   .cabecera__cta { margin: .5rem 0 1rem; }
 
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     .cabecera__toggle { display: none; }
     .cabecera__nav { display: flex; width: auto; align-items: center; gap: 1.5rem; }
     .cabecera__lista { flex-direction: row; gap: 1.5rem; }
     .cabecera__enlace { padding: .5rem 0; }
     .cabecera__cta { margin: 0; }
+  }
+
+  .cabecera a:focus-visible,
+  .cabecera button:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 2px;
+    border-radius: 4px;
   }
 </style>

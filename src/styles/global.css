@@ -202,10 +202,10 @@ a {
   text-underline-offset: 0.18em;
 }
 a:hover { color: var(--vpj-accent); }
-a:focus-visible {
-  outline: 3px solid var(--vpj-focus-ring);
+:focus-visible {
+  outline: 3px solid var(--vpj-primary-dark);
   outline-offset: 2px;
-  border-radius: 2px;
+  border-radius: 4px;
 }
 ul { padding-left: 1.25em; }
 li + li { margin-top: var(--vpj-space-1); }
@@ -274,8 +274,9 @@ li + li { margin-top: var(--vpj-space-1); }
     border-color 0.18s ease, transform 0.12s ease, box-shadow 0.18s ease;
 }
 .boton:focus-visible {
-  outline: 3px solid var(--vpj-focus-ring);
+  outline: 3px solid var(--vpj-primary-dark);
   outline-offset: 2px;
+  border-radius: 4px;
 }
 .boton:active { transform: translateY(1px); }
 .boton--primario { background-color: var(--vpj-primary); color: var(--vpj-text-on-dark); }

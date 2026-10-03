@@ -67,15 +67,26 @@
   margin-top: var(--vpj-space-5);
 }
 
+.hero .boton--secundario {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.10);
+}
+
+.hero .boton--secundario:hover {
+  background: rgba(255, 255, 255, 0.20);
+  border-color: #fff;
+}
+
 /* --- Versículo ------------------------------------------------------------ */
-.versiculo {
+.banda-versiculo {
   background-color: var(--vpj-primary-dark);
   color: var(--vpj-text-on-dark);
   padding-block: var(--vpj-space-7);
   text-align: center;
 }
 
-.versiculo p {
+.banda-versiculo p {
   margin-inline: auto;
   font-family: var(--vpj-font-display);
   font-size: var(--vpj-text-xl);
@@ -85,7 +96,7 @@
   color: var(--vpj-text-on-dark);
 }
 
-.versiculo cite {
+.banda-versiculo cite {
   display: block;
   margin-top: var(--vpj-space-3);
   font-size: var(--vpj-text-xs);
@@ -209,3 +220,34 @@
 
 /* --- Imágenes dentro de tarjeta en grid de cursos ------------------------ */
 /* La página youth-project.astro afina su propio grid con estilos scoped. */
+
+/* --- Galería de imágenes -------------------------------------------------- */
+.galeria {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--vpj-space-4);
+}
+
+.galeria img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--vpj-radius-lg);
+}
+
+@media (min-width: 768px) {
+  .galeria {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .galeria {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* --- Banner --------------------------------------------------------------- */
+.banner {
+  border-radius: var(--vpj-radius-lg);
+}
